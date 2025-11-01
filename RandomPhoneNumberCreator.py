@@ -187,6 +187,17 @@ class PhoneNumberGenerator:
                                           variable=self.operator_vars["中国电信"])
         self.telecom_cb.pack(side=tk.LEFT, padx=(0, 10))
 
+        # 添加全选、全不选、反选按钮
+        operator_control_frame = ttk.Frame(operator_frame)
+        operator_control_frame.pack(side=tk.RIGHT)
+
+        ttk.Button(operator_control_frame, text="全选",
+                   command=self.select_all_operators, width=6).pack(side=tk.LEFT, padx=(5, 2))
+        ttk.Button(operator_control_frame, text="全不选",
+                   command=self.select_none_operators, width=6).pack(side=tk.LEFT, padx=2)
+        ttk.Button(operator_control_frame, text="反选",
+                   command=self.invert_selection_operators, width=6).pack(side=tk.LEFT, padx=(2, 5))
+
         # 操作按钮框架 - 使用grid实现响应式布局
         button_container = ttk.Frame(control_frame)
         button_container.pack(fill=tk.X, pady=(0, 10))
